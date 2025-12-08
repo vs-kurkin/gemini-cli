@@ -154,6 +154,7 @@ export enum CommandKind {
   BUILT_IN = 'built-in',
   FILE = 'file',
   MCP_PROMPT = 'mcp-prompt',
+  CUSTOM = 'custom',
 }
 
 // The standardized contract for any command in the system.

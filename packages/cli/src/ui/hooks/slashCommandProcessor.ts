@@ -38,6 +38,7 @@ import { CommandService } from '../../services/CommandService.js';
 import { BuiltinCommandLoader } from '../../services/BuiltinCommandLoader.js';
 import { FileCommandLoader } from '../../services/FileCommandLoader.js';
 import { McpPromptLoader } from '../../services/McpPromptLoader.js';
+import { CustomCommandLoader } from '../../services/CustomCommandLoader.js';
 import { parseSlashCommand } from '../../utils/commands.js';
 import {
   type ExtensionUpdateAction,
@@ -296,9 +297,9 @@ export const useSlashCommandProcessor = (
     (async () => {
       const commandService = await CommandService.create(
         [
-          new McpPromptLoader(config),
-          new BuiltinCommandLoader(config),
-          new FileCommandLoader(config),
+                new McpPromptLoader(config),
+                new CustomCommandLoader(config),
+                new BuiltinCommandLoader(config),          new FileCommandLoader(config),
         ],
         controller.signal,
       );
